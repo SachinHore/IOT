@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "Sachin Hore",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -43.16, "attrs": {} },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": 42.8, "left": 118.3, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 54, "left": -111.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 129.6,
+      "left": -115.75,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "sw1:2", "esp:4", "green", [ "v0" ] ],
+    [ "esp:GND.2", "sw1:1", "black", [ "v0", "h19.2", "v76.8", "h48" ] ],
+    [ "esp:5V", "sw1:3", "red", [ "h-19.05", "v19.2", "h201.4" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "esp:13", "green", [ "h0" ] ],
+    [
+      "esp:GND.2",
+      "led1:C",
+      "black",
+      [ "v0", "h19.2", "v-38.4", "h-144", "v38.4", "h-67.2", "v86.4", "h38.4" ]
+    ]
+  ],
+  "dependencies": {}
+}

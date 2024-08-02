@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Sachin Hore",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 169.4,
+      "left": -163.2,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 195.95,
+      "left": -76.8,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 73.2,
+      "left": -130.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 157.55,
+      "left": -76.8,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "r1:2", "red", [ "h0" ] ],
+    [ "r1:1", "btn1:2.r", "red", [ "v0" ] ],
+    [ "esp:GND.2", "btn1:1.r", "black", [ "v0", "h24.04", "v-48", "h-172.8", "v201.6" ] ],
+    [ "esp:4", "btn1:2.l", "green", [ "h24.04", "v96", "h-316.8", "v-38.4" ] ],
+    [ "led1:A", "r2:1", "green", [ "h28.8", "v48" ] ],
+    [ "esp:13", "r2:2", "green", [ "h0" ] ],
+    [ "led1:C", "btn1:1.r", "black", [ "v38.4", "h19.6" ] ]
+  ],
+  "dependencies": {}
+}
